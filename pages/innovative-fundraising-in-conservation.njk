@@ -1,0 +1,49 @@
+{% extends "base.njk" %}
+
+{% block content %}
+{% call event("Innovative Fundraising in Conservation", "Thursday, April 1", "3:30 PM", "4:15 PM") %}
+<div class="bottom columns is-variable is-8">
+    <div class="column">
+        {{
+            panelist(
+                "Nelson Ole Reiyia",
+                "CEO and Cofounder, Nashulai Maasai Conservancy",
+                "/nelson-ole-reiyia.webp"
+            )
+        }}
+        {{
+            panelist(
+                "Josh Cogan",
+                "Emmy Award-Winning Photographer",
+                "/josh-cogan.webp"
+            )
+        }}
+    </div>
+    <div class="column">
+        {{
+            panelist(
+                "Oana Mondoc",
+                "Community Development and Innovation Lead, WWF Romania",
+                "/oana-mondoc.webp"
+            )
+        }}
+        {{
+            panelist(
+                "Eric Wilburn",
+                "Head of Business Development, Gorongosa National Park (Mozambique)",
+                "/eric-wilburn.webp"
+            )
+        }}
+    </div>
+</div>
+<div style="max-width: 50%; margin: auto; margin-top: 1rem;">
+    {{
+        panelist(
+            "Elliot David (Moderator)",
+            "Organizer, Greenlight Climate Festival",
+            "/elliot-david.jpeg"
+        )
+    }}
+</div>
+{% endcall %}
+{% endblock %}
