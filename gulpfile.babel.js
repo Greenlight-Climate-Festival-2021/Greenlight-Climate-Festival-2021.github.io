@@ -13,7 +13,6 @@ const render = require('gulp-nunjucks-render')
 const startServer = (done) => {
   browserSync.init({
     server: './docs',
-    // serveStatic: './images',
     port: 3000
   })
   done()
