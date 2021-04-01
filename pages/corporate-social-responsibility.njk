@@ -1,0 +1,31 @@
+{% extends "base.njk" %}
+{% block content %}
+    {% call event("Corporate Social Responsibility", "Thursday, April 1", "1:30 PM", "2:15 PM") %}
+    <div class="bottom columns is-variable is-8">
+        <div class="column">
+            {{ panelist(
+                "Timothy Wilkins",
+                "Global Partner for Sustainability, Freshfields Bruckhaus Deringer",
+                "/timothy-wilkins.webp"
+            ) }}
+            {{ panelist(
+            "Elliot David (Moderator)",
+            "Organizer, Greenlight Climate Festival",
+            "/elliot-david.jpeg"
+        ) }}
+        </div>
+        <div class="column">
+            {{ panelist(
+                "Garry Michael",
+                "Co-founder & CEO, Farm2M",
+                "/garry-michael.webp"
+            ) }}
+            {{ panelist(
+            "Mateja Tokic (Moderator)",
+            "Student, Baruch College",
+            "/mateja-tokic.jpg"
+        ) }}
+        </div>
+    </div>
+    {% endcall %}
+{% endblock %}
