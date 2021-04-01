@@ -1,0 +1,49 @@
+{% extends "base.njk" %}
+
+{% block content %}
+{% call event("Climate Entrepreneurship", "Thursday, April 1", "10:45 AM", "11:30 AM") %}
+<div class="bottom columns is-variable is-8">
+    <div class="column">
+        {{
+            panelist(
+                "Lindsay Ross",
+                "Director, Global Client Services, Four Twenty Seven, Inc",
+                "/lindsay-ross.jpeg"
+            )
+        }}
+        {{
+            panelist(
+                "Michael Jacobs",
+                "Vice President, Goldman Sachs",
+                "/michael-jacobs.webp"
+            )
+        }}
+    </div>
+    <div class="column">
+        {{
+            panelist(
+                "Skye D'Almeida",
+                "Senior Vice President of Green Investment Group, Macquarie",
+                "/skye-dalmeida.webp"
+            )
+        }}
+        {{
+            panelist(
+                "Sarah Hughes",
+                "Head of Sustainability (N. America), Schroders",
+                "/sarah-hughes.webp"
+            )
+        }}
+    </div>
+</div>
+<div style="max-width: 50%; margin: auto; margin-top: 1rem;">
+    {{
+        panelist(
+            "Trisha Bauman (Moderator)",
+            "Founder and CEO, TJBauman",
+            "/trisha-bauman.webp"
+        )
+    }}
+</div>
+{% endcall %}
+{% endblock %}

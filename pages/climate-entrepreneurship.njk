@@ -1,0 +1,42 @@
+{% extends "base.njk" %}
+
+{% block content %}
+    {% call event("Climate Entrepreneurship", "Thursday, April 1", "10:45 AM", "11:30 AM") %}
+    <div class="bottom columns is-variable is-8">
+        <div class="column">
+            {{ panelist(
+                "Sandra Noonan",
+                "Chief Sustainability Officer, Just Salad",
+                "/sandra-noonan.jpeg"
+            ) }}
+            {{ panelist(
+                "Christina Almeida",
+                "Founder & CEO, Pildora",
+                "/christina-almeida.webp"
+            ) }}
+            {{ panelist(
+                "Fayeann Lawrence",
+                "Founder & CEO, Sologistics",
+                "/fayeann-lawrence.webp"
+            ) }}
+        </div>
+        <div class="column">
+            {{ panelist(
+                "Chante Harris",
+                "Founder, Women of Color Collective in Sustainability",
+                "/paul-reale.webp"
+            ) }}
+            {{ panelist(
+                "Garry Cooper",
+                "Founder/CEO, Rheaply",
+                "/garry-cooper.webp"
+            ) }}
+            {{ panelist(
+                "Cloé Mueller (Moderator)",
+                "Student & Grove Fellow, Hunter Collegee",
+                "/cloe-muller.jpeg"
+            ) }}
+        </div>
+    </div>
+    {% endcall %}
+{% endblock %}
