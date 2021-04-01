@@ -1,0 +1,49 @@
+{% extends "base.njk" %}
+
+{% block content %}
+{% call event("Climate in International Affairs", "Thursday, April 1", "2:30 PM", "3:15 PM") %}
+<div class="bottom columns is-variable is-8">
+    <div class="column">
+        {{
+            panelist(
+                "Satya Tripathi",
+                "Assistant Secretary-General, United Nations Environment Programme",
+                "/satya-tripathi.webp"
+            )
+        }}
+        {{
+            panelist(
+                "Sanda Ojiambo",
+                "CEO and Executive Director, United Nations Global Compact",
+                "/sanda-ojiambo.webp"
+            )
+        }}
+    </div>
+    <div class="column">
+        {{
+            panelist(
+                "Rachel Kyte",
+                "Dean, Fletcher School at Tufts University",
+                "/rachel-kyte.webp"
+            )
+        }}
+        {{
+            panelist(
+                "Paul Holthus",
+                "President and CEO, World Ocean Council",
+                "/paul-holthus.webp"
+            )
+        }}
+    </div>
+</div>
+<div style="max-width: 50%; margin: auto; margin-top: 1rem;">
+    {{
+        panelist(
+            "Elliot David (Moderator)",
+            "Organizer, Greenlight Climate Festival",
+            "/elliot-david.webp"
+        )
+    }}
+</div>
+{% endcall %}
+{% endblock %}
