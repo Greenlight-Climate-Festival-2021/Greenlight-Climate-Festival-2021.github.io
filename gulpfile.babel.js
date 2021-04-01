@@ -1,60 +1,60 @@
-const gulp        = require('gulp');
-const browserSync = require('browser-sync');
-const sass        = require('gulp-sass');
-const prefix      = require('gulp-autoprefixer');
-const cssnano     = require('gulp-cssnano');
-const concat      = require('gulp-concat');
-const uglify      = require('gulp-uglify');
-const babel       = require('gulp-babel');
-const render      = require('gulp-nunjucks-render');
+'use strict'
+
+const gulp = require('gulp')
+const browserSync = require('browser-sync')
+const sass = require('gulp-sass')
+const prefix = require('gulp-autoprefixer')
+const cssnano = require('gulp-cssnano')
+const concat = require('gulp-concat')
+const uglify = require('gulp-uglify')
+const babel = require('gulp-babel')
+const render = require('gulp-nunjucks-render')
 
 const startServer = (done) => {
   browserSync.init({
-    server: "./",
-    port: 6950
+    server: './docs',
+    // serveStatic: './images',
+    port: 3000
   })
   done()
 }
 
-const compileScripts = () => { 
+const compileScripts = () => {
   return gulp.src(['js/*.js', 'js/custom.js'])
-  .pipe(babel({
-    "presets": [ "@babel/preset-env" ]
-  }))
-  .pipe(concat('scripts.js'))
-  .pipe(gulp.dest('./'))
-  .pipe(browserSync.reload({ stream:true }))
+    .pipe(concat('scripts.js'))
+    .pipe(gulp.dest('./docs'))
+    .pipe(browserSync.reload({ stream: true }))
 }
 
 const compileStyles = () => {
   return gulp.src('scss/styles.scss')
-  .pipe(sass({
-    includePaths: ['scss'],
-    onError: browserSync.notify
-  }))
-  .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
-  .pipe(gulp.dest('./'))
-  .pipe(browserSync.reload({ stream:true }))
+    .pipe(sass({
+      includePaths: ['scss'],
+      onError: browserSync.notify
+    }))
+    .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+    .pipe(gulp.dest('./docs'))
+    .pipe(browserSync.reload({ stream: true }))
 }
 
 const compileMarkup = () => {
   return gulp.src('pages/**/*.+(njk)')
-  .pipe(render({
+    .pipe(render({
       path: ['templates']
     }))
-  .pipe(gulp.dest('./'))
-  .pipe(browserSync.reload({ stream:true }))
+    .pipe(gulp.dest('./docs'))
+    .pipe(browserSync.reload({ stream: true }))
 }
 
 const watchMarkup = () => {
-  gulp.watch(['pages/**/*.+(njk)'], compileMarkup);
+  gulp.watch(['pages/**/*.+(njk)'], compileMarkup)
 }
 
 const watchScripts = () => {
-  gulp.watch(['js/*.js'], compileScripts);
+  gulp.watch(['js/*.js'], compileScripts)
 }
 
-const watchStyles = () => { 
+const watchStyles = () => {
   gulp.watch(['scss/*.scss'], compileStyles)
 }
 
@@ -79,7 +79,7 @@ export {
   watch,
   watchMarkup,
   watchScripts,
-  watchStyles,
+  watchStyles
 }
 
 export default defaultTasks

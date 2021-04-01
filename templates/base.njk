@@ -18,73 +18,12 @@
       font-family: 'PT Serif', serif !important;
     }
   </style>
-  <script>
-    const internals = {}
-
-    /** @param {number} ms */
-    internals.timeout = ms => {
-      return new Promise(resolve => {
-        setTimeout(resolve, ms)
-      })
-    }
-
-    /** @param {number} seconds */
-    internals.formatTime = seconds => {
-      const pad = number => `${number}`.padStart(2, 0)
-
-      let minute = Math.floor(seconds / 60)
-      const second = Math.round(seconds % 60)
-      if (minute > 60) {
-        const hour = Math.floor(minute / 60)
-        minute = Math.floor(minute % 60)
-        return `${hour}:${pad(minute)}:${pad(second)}`
-      }
-      return `${minute}:${pad(second)}`
-    }
-
-    class Timer {
-      /** @param {HTMLElement} element */
-      constructor(element = document.querySelector('[data-countdown-date]')) {
-        this.element = element
-        this.endTime = new Date(element.dataset.countdownDate)
-        this.isCancelled = false
-
-        this.cancel = this.cancel.bind(this)
-        this.run = this.run.bind(this)
-      }
-
-      cancel() {
-        console.log(`[Timer] Cancelling ${this.length} minute timer`)
-        this.isCancelled = true
-      }
-
-      async run() {
-        console.log(`[Timer] Starting ${this.length} minute timer`)
-        const startTime = Date.now()
-        const finishTime = this.endTime.getTime()
-
-        while (finishTime > Date.now()) {
-          const seconds = Math.round((finishTime - Date.now()) / 1000)
-          this.element.textContent = internals.formatTime(seconds)
-          await internals.timeout(1000)
-        }
-
-        this.element.textContent = '0:00'
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const element = document.querySelector('[data-countdown-date]')
-      const timer = new Timer(element)
-      timer.run()
-    })
-  </script>
 </head>
 {% macro panelist(name, title, image) %}
 <article class="media">
     <figure class="media-left">
         <p class="image is-96x96">
-            <img src="{{ image }}" style="object-fit: cover; height: 96px; width: 96px;">
+            <img src="/images{{ image }}" style="object-fit: cover; height: 96px; width: 96px;">
         </p>
     </figure>
     <div class="media-content has-text-left">
@@ -126,7 +65,7 @@
 
 <body>
   {% block content %} {% endblock %}
-  <script src="scripts.js"></script>
+  <script src="/scripts.js"></script>
 </body>
 
 </html>
