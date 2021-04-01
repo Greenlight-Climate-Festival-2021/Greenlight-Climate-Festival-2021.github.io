@@ -1,0 +1,40 @@
+{% extends "base.njk" %}
+
+{% block content %}
+{% call event("Climate Justice", "Wednesday, March 31", "10:45 AM", "11:30 AM") %}
+<div class="bottom columns is-variable is-8">
+    <div class="column">
+        {{
+            panelist(
+                "Kizzy Charles-Guzman",
+                "Deputy Director, NYC Mayor’s Office of Sustainability",
+                "/kizzy-charles-guzzman.jpeg"
+            )
+        }}
+        {{
+            panelist(
+                "Kaela Mainsah",
+                "Senior Manager Environmental Justice & Sustainability, NYPA",
+                "/kaela-mainsah.jpeg"
+            )
+        }}
+    </div>
+    <div class="column">
+        {{
+            panelist(
+                "Peggy Shepard",
+                "Executive Director, WE ACT for Environmental Justice",
+                "/peggy-shepard.jpeg"
+            )
+        }}
+        {{
+            panelist(
+                "Kulsum Rifa (Moderator)",
+                "CUNY Student & 2019 UNSG Climate Summit Delegate",
+                "/kulsum-rifa.jpeg"
+            )
+        }}
+    </div>
+</div>
+{% endcall %}
+{% endblock %}

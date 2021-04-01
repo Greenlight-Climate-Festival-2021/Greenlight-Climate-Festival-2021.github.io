@@ -1,0 +1,49 @@
+{% extends "base.njk" %}
+
+{% block content %}
+{% call event("Sustainability at CUNY", "Wednesday, March 31", "11:45 AM", "12:30 PM") %}
+<div class="bottom columns is-variable is-8">
+    <div class="column">
+        {{
+            panelist(
+                "Peter Marcotullio",
+                "Director, CUNY Institute for Sustainable Cities",
+                "/peter-marcotullio.jpeg"
+            )
+        }}
+        {{
+            panelist(
+                "Tria Case",
+                "Executive Director of Sustainability and Energy Conservation, CUNY",
+                "/tria-case.jpg"
+            )
+        }}
+    </div>
+    <div class="column">
+        {{
+            panelist(
+                "Paul Reale",
+                "Director, CUNY Building Performance Lab",
+                "/paul-reale.jpeg"
+            )
+        }}
+        {{
+            panelist(
+                "Huyuni Suratt",
+                "Director of Sponsored Research, The CUNY Graduate Center",
+                "/huyuni-suratt.jpeg"
+            )
+        }}
+    </div>
+</div>
+<div style="max-width: 50%; margin: auto; margin-top: 1rem;">
+    {{
+        panelist(
+            "Say Sanchez (Moderator)",
+            "Student & Grove Fellow, Hunter Collegee",
+            "/say-sanchez.jpeg"
+        )
+    }}
+</div>
+{% endcall %}
+{% endblock %}

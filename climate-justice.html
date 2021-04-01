@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Greenlight Climate Festival</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Spartan', sans-serif;
+    }
+
+    .is-serif,
+    .is-serif>* {
+      font-family: 'PT Serif', serif !important;
+    }
+  </style>
+  <script>
+    const internals = {}
+
+    /** @param {number} ms */
+    internals.timeout = ms => {
+      return new Promise(resolve => {
+        setTimeout(resolve, ms)
+      })
+    }
+
+    /** @param {number} seconds */
+    internals.formatTime = seconds => {
+      const pad = number => `${number}`.padStart(2, 0)
+
+      let minute = Math.floor(seconds / 60)
+      const second = Math.round(seconds % 60)
+      if (minute > 60) {
+        const hour = Math.floor(minute / 60)
+        minute = Math.floor(minute % 60)
+        return `${hour}:${pad(minute)}:${pad(second)}`
+      }
+      return `${minute}:${pad(second)}`
+    }
+
+    class Timer {
+      /** @param {HTMLElement} element */
+      constructor(element = document.querySelector('[data-countdown-date]')) {
+        this.element = element
+        this.endTime = new Date(element.dataset.countdownDate)
+        this.isCancelled = false
+
+        this.cancel = this.cancel.bind(this)
+        this.run = this.run.bind(this)
+      }
+
+      cancel() {
+        console.log(`[Timer] Cancelling ${this.length} minute timer`)
+        this.isCancelled = true
+      }
+
+      async run() {
+        console.log(`[Timer] Starting ${this.length} minute timer`)
+        const startTime = Date.now()
+        const finishTime = this.endTime.getTime()
+
+        while (finishTime > Date.now()) {
+          const seconds = Math.round((finishTime - Date.now()) / 1000)
+          this.element.textContent = internals.formatTime(seconds)
+          await internals.timeout(1000)
+        }
+
+        this.element.textContent = '0:00'
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const element = document.querySelector('[data-countdown-date]')
+      const timer = new Timer(element)
+      timer.run()
+    })
+  </script>
+</head>
+
+
+
+
+<body>
+  
+
+<section class="hero is-success is-bold is-fullheight">
+    <div class="hero-body has-text-centered">
+        <div style="margin: auto;">
+            <div class="top my-5">
+                <p class="subtitle has-text-weight-bold is-uppercase my-3">
+                    The 2021 Greenlight Climate Festival Presents
+                </p>
+                <p class="title is-1 is-uppercase my-5">
+                    Climate Justice
+                </p>
+                <p class="subtitle my-3 is-serif">
+                    Wednesday, March 31 • <span class="has-text-weight-bold">10:45 AM - 11:30 AM EDT</span>
+                </p>
+            </div>
+            <div style="height: 25px;"></div>
+            <div class="center my-5">
+                <p class="subtitle is-5">This panel starts in</p>
+                <p class="title is-2 mt-4" data-countdown-date="Wednesday, March 31, 2021 10:45 AM"
+                    style="font-variant-numeric: tabular-nums lining-nums;"></p>
+            </div>
+            <div style="height: 50px;"></div>
+            
+<div class="bottom columns is-variable is-8">
+    <div class="column">
+        
+<article class="media">
+    <figure class="media-left">
+        <p class="image is-96x96">
+            <img src="/kizzy-charles-guzzman.jpeg" style="object-fit: cover; height: 96px; width: 96px;">
+        </p>
+    </figure>
+    <div class="media-content has-text-left">
+        <div class="content" style="height: 96px; display: flex; flex-direction: column; justify-content: center;">
+            <p class="title is-5 my-2">Kizzy Charles-Guzman</p>
+            <p class="subtitle is-6 my-2">Deputy Director, NYC Mayor’s Office of Sustainability</p>
+        </div>
+    </div>
+</article>
+
+        
+<article class="media">
+    <figure class="media-left">
+        <p class="image is-96x96">
+            <img src="/kaela-mainsah.jpeg" style="object-fit: cover; height: 96px; width: 96px;">
+        </p>
+    </figure>
+    <div class="media-content has-text-left">
+        <div class="content" style="height: 96px; display: flex; flex-direction: column; justify-content: center;">
+            <p class="title is-5 my-2">Kaela Mainsah</p>
+            <p class="subtitle is-6 my-2">Senior Manager Environmental Justice &amp; Sustainability, NYPA</p>
+        </div>
+    </div>
+</article>
+
+    </div>
+    <div class="column">
+        
+<article class="media">
+    <figure class="media-left">
+        <p class="image is-96x96">
+            <img src="/peggy-shepard.jpeg" style="object-fit: cover; height: 96px; width: 96px;">
+        </p>
+    </figure>
+    <div class="media-content has-text-left">
+        <div class="content" style="height: 96px; display: flex; flex-direction: column; justify-content: center;">
+            <p class="title is-5 my-2">Peggy Shepard</p>
+            <p class="subtitle is-6 my-2">Executive Director, WE ACT for Environmental Justice</p>
+        </div>
+    </div>
+</article>
+
+        
+<article class="media">
+    <figure class="media-left">
+        <p class="image is-96x96">
+            <img src="/kulsum-rifa.jpeg" style="object-fit: cover; height: 96px; width: 96px;">
+        </p>
+    </figure>
+    <div class="media-content has-text-left">
+        <div class="content" style="height: 96px; display: flex; flex-direction: column; justify-content: center;">
+            <p class="title is-5 my-2">Kulsum Rifa (Moderator)</p>
+            <p class="subtitle is-6 my-2">CUNY Student &amp; 2019 UNSG Climate Summit Delegate</p>
+        </div>
+    </div>
+</article>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+</section>
+
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>

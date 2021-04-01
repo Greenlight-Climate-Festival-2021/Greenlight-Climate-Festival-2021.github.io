@@ -1,0 +1,49 @@
+{% extends "base.njk" %}
+
+{% block content %}
+{% call event("Sustainability at CUNY", "Wednesday, March 31", "2:30 PM", "3:15 PM") %}
+<div class="bottom columns is-variable is-8">
+    <div class="column">
+        {{
+            panelist(
+                "Xixi Chen",
+                "EDF+BIZ Manager, Environmental Defense Fund",
+                "/xixi-chen.jpeg"
+            )
+        }}
+        {{
+            panelist(
+                "Sanya Detweiler",
+                "Associate Director, Clinton Climate Initative",
+                "/sanya-detweiler.jpeg"
+            )
+        }}
+    </div>
+    <div class="column">
+        {{
+            panelist(
+                "Bill Ulfeder",
+                "Executive Director, The Nature Conservancy (NY)",
+                "/bill-ulfeder.png"
+            )
+        }}
+        {{
+            panelist(
+                "Eliza Nemser",
+                "Cofounder & Executive Director, Climate Changemakers",
+                "/eliza-nemser.jpeg"
+            )
+        }}
+    </div>
+</div>
+<div style="max-width: 50%; margin: auto; margin-top: 1rem;">
+    {{
+        panelist(
+            "Elliot David (Moderator)",
+            "Business Development and Partnerships, Americas at Carbonbase",
+            "/elliot-david.jpeg"
+        )
+    }}
+</div>
+{% endcall %}
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.njk" %}
+
+{% block content %}
+{% call event("NYC Climate Action", "Wednesday, March 31", "1:30 PM", "2:15 PM") %}
+<div class="bottom columns is-variable is-8">
+    <div class="column">
+        {{
+            panelist(
+                "Kara Allen", 
+                "Senior Advisor - Policy and Regulatory Affairs, NYSERDA",
+                "/kara-allen.jpeg"
+            )
+        }}
+        {{
+            panelist(
+                "Adrian Benepe",
+                "Former Commisioner, NYC Parks Department and Current President, Brooklyn Botanical Gardens",
+                "/adrian-benepe.jpeg"
+            )
+        }}
+    </div>
+    <div class="column">
+        {{
+            panelist(
+                "Projjal Dutta",
+                "Director of Sustainability, MTA",
+                "/projjal-dutta.jpeg"
+            )
+        }}
+        {{
+            panelist(
+                "Cortney Koenig Worrall",
+                "President & CEO, Waterfront Alliance",
+                "/cortney-koenig-worrall.jpeg"
+            )
+        }}
+    </div>
+</div>
+<div style="max-width: 50%; margin: auto; margin-top: 1rem;">
+    {{
+        panelist(
+            "Elliot David (Moderator)",
+            "Business Development and Partnerships, Americas at Carbonbase",
+            "/elliot-david.jpeg"
+        )
+    }}
+</div>
+{% endcall %}
+{% endblock %}
